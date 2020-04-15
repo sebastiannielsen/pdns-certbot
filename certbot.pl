@@ -32,6 +32,13 @@ $certpath = "/path/to/new/certificate.crt";
 
 
 #####################
+#   NOTE!!!!        #
+#####################
+
+# TO LAUNCH CERTIFICATE GENERATION - SUPPLY AN ARGUMENT OF "1" - like this: ./certbot.pl 1.
+# ELSE IT WILL LAUNCH IN POWERDNS PIPE MODE READY TO RECEIVE COMMANDS FROM A POWERDNS INSTANCE
+
+#####################
 #   SCRIPT          #
 #####################
 
