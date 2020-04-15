@@ -138,7 +138,7 @@ else
                         foreach $acme (@acmes) {
                                 $acme =~ s/\n//sgi;
                                 if (length($acme) > 5) {
-                                        print "DATA     $qname  $qclass TXT     3600    1       \"".$acme."\"\n";
+                                        print "DATA     $qname  $qclass TXT     4    1       \"".$acme."\"\n";
                                 }
                         }
                 }
