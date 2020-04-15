@@ -106,7 +106,7 @@ if ($ARGV[0] eq "1") {
         }
 
         print "Generating certificate...\n";
-        $acme->finalize_order($order,$cert_request) || die "Unable to generate certificate --> Possible failed some validation for sebbe.eu or exceeded rate limits\n";
+        $acme->finalize_order($order,$cert_request) || die "Unable to generate certificate --> Possible failed some validation or exceeded rate limits\n";
         while ($order->status() ne 'valid') {
             sleep 1;
             $acme->poll_order($order);
