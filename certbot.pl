@@ -152,7 +152,7 @@ else
                                 $acme =~ s/[^A-Za-z0-9_\-]*//sgi;
                                 $acme = substr($acme,0,43);
                                 if (length($acme) == 43) {
-                                        print "DATA     $qname  $qclass TXT     4       1       \"".$acme."\"\n";
+                                        print "DATA\t$qname\t$qclass\tTXT\t4\t1\t\"".$acme."\"\n";
                                         if (($z >= $#domains)||($z >= 60)) {
                                                 last;
                                         }
