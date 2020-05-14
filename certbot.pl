@@ -44,6 +44,11 @@ $certpath = "/path/to/new/certificate.crt";
 
 $|=1;
 
+if ($#domains => 60) {
+print "LOG Unable to process more than 60 domains. (Response size would exceed 4097 and get rejected by LetsEncrypt)\nFAIL\n";
+<>;
+exit;
+}
 
 if ($ARGV[0] eq "1") {
         if ($account_url) {
@@ -145,13 +150,13 @@ else
                         $z = 0;
                         foreach $acme (@acmes) {
                                 $acme =~ s/[^A-Za-z0-9_\-]*//sgi;
-                                $acme = substr($acme,0,45);
-                                if (length($acme) > 5) {
+                                $acme = substr($acme,0,43);
+                                if (length($acme) == 43) {
                                         print "DATA     $qname  $qclass TXT     4       1       \"".$acme."\"\n";
-                                        if ($z > $#domains) {
+                                        if (($z => $#domains)||($z => 60)) {
                                                 last;
                                         }
-                                        $z++;
+                                $z++;
                                 }
                         }
                 }
