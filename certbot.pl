@@ -143,7 +143,7 @@ else
                         @acmes = <ACMEFILE>;
                         close(ACMEFILE);
                         foreach $acme (@acmes) {
-                                $acme =~ s/\n//sgi;
+                                $acme =~ s/[^A-Za-z0-9_\-]*//sgi
                                 if (length($acme) > 5) {
                                         print "DATA     $qname  $qclass TXT     4    1       \"".$acme."\"\n";
                                 }
