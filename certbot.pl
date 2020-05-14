@@ -148,11 +148,11 @@ else
                                 $acme = substr($acme,0,45);
                                 if (length($acme) > 5) {
                                         print "DATA     $qname  $qclass TXT     4       1       \"".$acme."\"\n";
+                                        if ($z > $#domains) {
+                                                last;
+                                        }
+                                        $z++;
                                 }
-                                if ($z > $#domains) {
-                                        last;
-                                }
-                                $z++;
                         }
                 }
                 print "END\n";
