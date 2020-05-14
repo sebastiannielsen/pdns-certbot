@@ -145,7 +145,7 @@ else
                         $z = 0;
                         foreach $acme (@acmes) {
                                 $acme =~ s/[^A-Za-z0-9_\-]*//sgi;
-                                $acme = substr($acme,0,90);
+                                $acme = substr($acme,0,45);
                                 if (length($acme) > 5) {
                                         print "DATA     $qname  $qclass TXT     4       1       \"".$acme."\"\n";
                                 }
