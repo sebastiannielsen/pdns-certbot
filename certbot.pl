@@ -45,7 +45,7 @@ $certpath = "/path/to/new/certificate.crt";
 $|=1;
 
 if ($#domains >= 60) {
-print "LOG Unable to process more than 60 domains. (Response size would exceed 4097 and get rejected by LetsEncrypt)\nFAIL\n";
+print "LOG\tUnable to process more than 60 domains. (Response size would exceed 4097 and get rejected by LetsEncrypt)\nFAIL\n";
 <>;
 exit;
 }
@@ -132,12 +132,12 @@ else
                 <>;
                 exit;
         }
-        print "OK       LetsEncrypt ACME DNS Validator starting up\n";
+        print "OK\tLetsEncrypt ACME DNS Validator starting up\n";
         while(<>) {
                 chomp();
                 @arr=split(/\t/);
                 if(@arr<6) {
-                        print "LOG      PowerDNS sent unparseable line\n";
+                        print "LOG\tPowerDNS sent unparseable line\n";
                         print "FAIL\n";
                         next;
                 }
